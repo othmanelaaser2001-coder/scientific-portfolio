@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>عارف حقك — Aref Haqqak</title>
+    <meta name="description" content="القوانين المغربية حسب الموضوع، مع تنبيهات عشوائية. Les lois marocaines par thème, avec des rappels aléatoires." />
+    <meta name="theme-color" content="#0f1512" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/icon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Classic script: shared verbatim with the service worker via importScripts. -->
+    <script src="./store.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main" data-i18n="skip">تخطى إلى المحتوى</a>
+
+    <header class="topbar">
+      <div class="topbar-row">
+        <button class="brand" id="home-btn" type="button">
+          <span class="brand-mark" aria-hidden="true">⚖️</span>
+          <span class="brand-text">
+            <strong data-i18n="appName">عارف حقك</strong>
+            <small data-i18n="appTag">القانون المغربي، مبسّط ومُوثّق</small>
+          </span>
+        </button>
+        <div class="topbar-actions">
+          <button class="chip-btn" id="lang-btn" type="button" aria-label="Language">FR</button>
+          <button class="chip-btn" id="settings-btn" type="button" aria-label="Settings">🔔</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ------------------------------------------------------- list view -->
+      <section id="view-list" class="view">
+        <div class="search-wrap">
+          <input
+            id="search"
+            type="search"
+            autocomplete="off"
+            data-i18n-attr="placeholder:searchPlaceholder"
+            placeholder="بحث فـ القوانين…"
+          />
+        </div>
+        <nav class="chips" id="cat-chips" aria-label="Catégories"></nav>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+        <div class="cards" id="cards"></div>
+        <p class="empty" id="empty" hidden data-i18n="noResults">ماكاين حتى نتيجة.</p>
+      </section>
+
+      <!-- ----------------------------------------------------- detail view -->
+      <section id="view-detail" class="view" hidden>
+        <button class="back" id="back-btn" type="button" data-i18n="back">رجوع</button>
+        <article class="detail" id="detail"></article>
+      </section>
+
+      <!-- --------------------------------------------------- settings view -->
+      <section id="view-settings" class="view" hidden>
+        <button class="back" id="back-btn-2" type="button" data-i18n="back">رجوع</button>
+        <h1 data-i18n="notifTitle">تنبيهات عشوائية</h1>
+        <p class="muted" data-i18n="notifIntro">
+          التطبيق كيصيفط ليك فقرات قانونية قصيرة فـ أوقات عشوائية خلال النهار.
+        </p>
+
+        <div class="field switch-field">
+          <label for="notif-toggle" data-i18n="notifEnable">تفعيل التنبيهات</label>
+          <input type="checkbox" id="notif-toggle" class="switch" />
+        </div>
+        <p class="note" id="notif-status" role="status"></p>
+
+        <div class="field">
+          <label for="per-day">
+            <span data-i18n="perDay">عدد التنبيهات فـ النهار</span>
+            <output id="per-day-out">3</output>
+          </label>
+          <input type="range" id="per-day" min="1" max="6" step="1" value="3" />
+        </div>
+
+        <div class="field two">
+          <div>
+            <label for="start-hour" data-i18n="fromHour">من الساعة</label>
+            <input type="number" id="start-hour" min="0" max="23" value="9" />
+          </div>
+          <div>
+            <label for="end-hour" data-i18n="toHour">إلى الساعة</label>
+            <input type="number" id="end-hour" min="1" max="23" value="21" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label data-i18n="notifCats">المواضيع اللي بغيتي</label>
+          <div class="chips" id="notif-cats"></div>
+        </div>
+
+        <div class="field row">
+          <button class="btn" id="test-btn" type="button" data-i18n="testNotif">جرّب تنبيه دابا</button>
+          <button class="btn ghost" id="reshuffle-btn" type="button" data-i18n="reshuffle">عاود الجدولة</button>
+        </div>
+
+        <h2 data-i18n="upcoming">التنبيهات الجاية</h2>
+        <ul class="upcoming" id="upcoming"></ul>
+
+        <h2 data-i18n="aboutTitle">على التطبيق</h2>
+        <p class="muted" id="about-text"></p>
+      </section>
+    </main>
+
+    <footer class="disclaimer">
+      <p id="disclaimer-text"></p>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

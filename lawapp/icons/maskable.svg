@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Aref Haqqak">
+  <!-- Maskable: artwork kept inside the 80% safe zone so platform masks
+       (circle, squircle, rounded square) never clip the scales. -->
+  <rect width="512" height="512" fill="#14523a"/>
+  <g transform="translate(256 256) scale(0.62) translate(-256 -256)">
+    <g fill="none" stroke="#eaf0ea" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M256 128v240"/>
+      <path d="M146 168h220"/>
+      <path d="M146 168 104 268h84z"/>
+      <path d="M366 168l-42 100h84z"/>
+      <path d="M196 384h120"/>
+    </g>
+    <path d="M104 268a42 42 0 0 0 84 0" fill="none" stroke="#43c98a" stroke-width="26" stroke-linecap="round"/>
+    <path d="M324 268a42 42 0 0 0 84 0" fill="none" stroke="#43c98a" stroke-width="26" stroke-linecap="round"/>
+  </g>
+</svg>

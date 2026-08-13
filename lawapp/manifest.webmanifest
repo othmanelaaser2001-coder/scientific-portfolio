@@ -1,0 +1,38 @@
+{
+  "name": "عارف حقك — Aref Haqqak",
+  "short_name": "عارف حقك",
+  "description": "القوانين المغربية حسب الموضوع، مع تنبيهات عشوائية. Les lois marocaines par thème, avec des rappels aléatoires.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1512",
+  "theme_color": "#0f1512",
+  "categories": ["education", "reference", "government"],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "التوقيف وحقوق المشتبه فيه",
+      "url": "./#/a/gav-duree"
+    },
+    {
+      "name": "قانون السير",
+      "url": "./#/a/route-quittance"
+    }
+  ]
+}
