@@ -22,8 +22,11 @@
   color-scheme: dark;
 }
 
+/* Dark is the committed default above. Light applies when the system asks for
+   it (unless the reader has explicitly chosen dark) and when the reader has
+   explicitly chosen light — the two blocks below must stay in sync. */
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --bg: #f6f7f4;
     --bg-raised: #ffffff;
     --bg-sunken: #eceee8;
@@ -38,6 +41,22 @@
     --shadow: 0 1px 2px rgba(20, 32, 26, 0.06), 0 6px 18px rgba(20, 32, 26, 0.06);
     color-scheme: light;
   }
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f7f4;
+  --bg-raised: #ffffff;
+  --bg-sunken: #eceee8;
+  --line: #dce1d9;
+  --line-soft: #e8ebe5;
+  --ink: #14201a;
+  --ink-dim: #4e6055;
+  --ink-faint: #7a8a80;
+  --accent: #1d7a4f;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(29, 122, 79, 0.1);
+  --shadow: 0 1px 2px rgba(20, 32, 26, 0.06), 0 6px 18px rgba(20, 32, 26, 0.06);
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }

@@ -3,6 +3,14 @@ import { syncSchedule, upcoming, hasNativeTriggers } from './scheduler.js';
 
 const store = self.MLawStore;
 
+/**
+ * Set by build-preview.mjs in the single-file bundle. That build has no
+ * service worker and usually runs in a sandbox where the Notification
+ * permission cannot be granted at all — so it plans and displays the schedule
+ * without demanding a permission it can never get, and says so on screen.
+ */
+const PREVIEW = !!self.MLAW_SINGLE_FILE;
+
 /* ------------------------------------------------------------------- i18n */
 
 const UI = {
@@ -38,6 +46,8 @@ const UI = {
     iosNote:
       'ملاحظة: على iPhone، خاص تزيد التطبيق للشاشة الرئيسية باش تخدم التنبيهات، وحتى دبا ماكيضمنش المتصفح التوقيت بدقة.',
     windowBad: 'ساعة البداية خاصها تكون قبل ساعة النهاية.',
+    previewNote:
+      'هادي معاينة: الجدولة كتبان هنا، ولكن ماكيمكنش تتصيفط تنبيهات حقيقية من هاد الصفحة.',
     unverified:
       '⚠️ هاد النسخة تجريبية: النصوص خاصها تتراجع مع الجريدة الرسمية قبل الاعتماد عليها.',
   },
@@ -75,6 +85,8 @@ const UI = {
     iosNote:
       "Note : sur iPhone, ajoutez l'app à l'écran d'accueil pour que les notifications fonctionnent — et même ainsi, l'horaire exact n'est pas garanti par le navigateur.",
     windowBad: "L'heure de début doit précéder l'heure de fin.",
+    previewNote:
+      "Aperçu : la programmation s'affiche ici, mais aucune notification système ne peut partir de cette page.",
     unverified:
       '⚠️ Version de démonstration : les textes doivent être vérifiés au Bulletin Officiel avant tout usage réel.',
   },
@@ -357,14 +369,17 @@ function updateStatusLine(schedule) {
     el.textContent = t.off;
     return;
   }
-  if (Notification.permission === 'denied') {
+  const granted = notificationsSupported() && Notification.permission === 'granted';
+  if (!granted && !PREVIEW) {
     el.textContent = t.permDenied;
     el.classList.add('warn');
     return;
   }
   const pending = (schedule || []).filter((e) => !e.fired || e.triggered).length;
   el.textContent = t.onOk(pending);
-  if (!hasNativeTriggers()) {
+  if (!granted) {
+    el.textContent += ' ' + t.previewNote;
+  } else if (!hasNativeTriggers()) {
     el.textContent += ' ' + t.iosNote;
   }
 }
@@ -401,8 +416,12 @@ function refreshSettingsView() {
   store.getSchedule().then(updateStatusLine);
 }
 
+function notificationsSupported() {
+  return typeof Notification !== 'undefined';
+}
+
 async function enableNotifications() {
-  if (!('Notification' in window)) return false;
+  if (!notificationsSupported()) return false;
   let perm = Notification.permission;
   if (perm === 'default') perm = await Notification.requestPermission();
   return perm === 'granted';
@@ -410,13 +429,18 @@ async function enableNotifications() {
 
 function wireSettings() {
   $('#notif-toggle').addEventListener('change', async (e) => {
-    if (e.target.checked) {
+    // In the preview build the permission request is skipped entirely: inside
+    // a sandboxed frame `requestPermission()` can hang rather than resolve,
+    // which would leave the toggle flipped and nothing happening behind it.
+    if (e.target.checked && !PREVIEW) {
       const ok = await enableNotifications();
       if (!ok) {
         e.target.checked = false;
         settings.enabled = false;
         $('#notif-status').textContent =
-          Notification.permission === 'denied' ? t.permDenied : t.permNeeded;
+          notificationsSupported() && Notification.permission === 'denied'
+            ? t.permDenied
+            : t.permNeeded;
         $('#notif-status').classList.add('warn');
         await store.setSettings(settings);
         return;
@@ -451,23 +475,34 @@ function wireSettings() {
   $('#end-hour').addEventListener('change', onHour);
 
   $('#test-btn').addEventListener('click', async () => {
+    if (PREVIEW) {
+      $('#notif-status').textContent = t.previewNote;
+      return;
+    }
     if (!(await enableNotifications())) {
       $('#notif-status').textContent = t.permNeeded;
+      $('#notif-status').classList.add('warn');
       return;
     }
     const pool = settings.categories
       ? ARTICLES.filter((a) => settings.categories.includes(a.cat))
       : ARTICLES;
     const a = pool[Math.floor(Math.random() * pool.length)];
-    const reg = await navigator.serviceWorker.ready;
-    await reg.showNotification(a.title[lang], {
+    const options = {
       body: a.fact[lang],
       icon: './icons/icon.svg',
       badge: './icons/badge.svg',
       lang,
       dir: lang === 'ar' ? 'rtl' : 'ltr',
       data: { url: './#/a/' + a.id },
-    });
+    };
+    // Without a service worker there is no notificationclick handler, so the
+    // constructor form is the fallback rather than the primary path.
+    if (store.registration) {
+      await store.registration.showNotification(a.title[lang], options);
+    } else {
+      new Notification(a.title[lang], options);
+    }
   });
 
   $('#reshuffle-btn').addEventListener('click', () =>
@@ -519,20 +554,22 @@ async function init() {
   window.addEventListener('hashchange', route);
   route();
 
-  if ('serviceWorker' in navigator) {
+  // Registration is optional: without it the app still browses and still
+  // plans, it just cannot deliver in the background.
+  if ('serviceWorker' in navigator && !PREVIEW) {
     try {
       await navigator.serviceWorker.register('./sw.js');
-      await syncSchedule();
+      store.registration = await navigator.serviceWorker.ready;
     } catch (err) {
-      console.warn('service worker registration failed', err);
+      console.warn('service worker unavailable, notifications limited', err);
     }
   }
+  await syncSchedule();
 
   // Foreground catch-up: the only delivery path that works everywhere.
   const catchUp = async () => {
     if (document.hidden) return;
-    const reg = await navigator.serviceWorker?.ready;
-    if (reg) await store.flushDue(reg);
+    if (store.registration) await store.flushDue(store.registration);
     await syncSchedule();
   };
   document.addEventListener('visibilitychange', catchUp);

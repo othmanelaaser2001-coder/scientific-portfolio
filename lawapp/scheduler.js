@@ -154,7 +154,11 @@ export async function syncSchedule({ force = false } = {}) {
     schedule = schedule.filter((e) => !drop.has(e.id));
   }
 
-  const registration = await navigator.serviceWorker?.ready;
+  // Set by app.js once registration succeeds. Never await
+  // `navigator.serviceWorker.ready` directly: in private browsing and in
+  // sandboxed frames the object exists but the promise never settles, which
+  // would hang scheduling forever instead of falling back.
+  const registration = store.registration;
   if (registration) {
     await armNativeTriggers(registration, schedule);
     await store.setSchedule(schedule);
