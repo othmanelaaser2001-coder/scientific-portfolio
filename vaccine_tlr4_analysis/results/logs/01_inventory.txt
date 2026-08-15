@@ -1,0 +1,89 @@
+Fichier analyse : structures/complex.pdb
+
+==========================================================================
+1. DE QUOI LE FICHIER EST-IL FAIT ?
+==========================================================================
+  lignes totales : 10261
+    ATOM        10256
+    HEADER          2
+    TER             2
+    REMARK          1
+
+  Lignes non atomiques (en-tetes, remarques, separateurs) :
+    | HEADER rec.pdb
+    | REMARK original generated coordinate pdb file
+    | TER
+    | HEADER lig.000.01.pdb
+    | TER
+
+==========================================================================
+2. INVENTAIRE PAR CHAINE
+==========================================================================
+  chaine      atomes   residus   numerotation      segid    trous
+  ----------------------------------------------------------------
+  A             5824       601         27-627        RA0        0
+  B             4432       477          1-477        LB0        0
+
+==========================================================================
+3. RESIDUS NON STANDARDS
+==========================================================================
+  aucun : tous les residus sont des acides amines standards.
+  atomes avec position alternative (altloc) : 0
+
+==========================================================================
+4. HYDROGENES
+==========================================================================
+  composition elementaire : {'N': 1437, 'H': 1836, 'C': 5361, 'O': 1579, 'S': 43}
+  atomes d'hydrogene : 1836 / 10256 (18 %)
+  noms d'hydrogene distincts : 18
+  exemples : H, HG, HG1, HZ1, HZ2, HZ3, HD21, HD22, HE21, HE22
+  -> hydrogenes POLAIRES SEULEMENT (aucun HA/HB porte par un carbone).
+     Suffisant pour les liaisons hydrogene et les ponts salins.
+     Insuffisant pour un calcul d'energie tout-atome.
+
+==========================================================================
+5. CONTINUITE DES CHAINES (distance CA-CA consecutive)
+==========================================================================
+  Une liaison peptidique donne CA-CA ~ 3.8 A.
+  Au-dela de 4.5 A, les deux residus ne sont pas lies : rupture reelle.
+
+  nombre de carbones alpha : 1078
+  -> aucune rupture : chaque chaine est un polymere continu.
+
+==========================================================================
+6. LES PARTENAIRES SONT-ILS EN CONTACT ?
+==========================================================================
+  atomes lourds : chaine A = 4800, chaine B = 3620
+  distance lourd-lourd minimale entre A et B : 2.46 A
+  atomes lourds de B a moins de 4.0 A de A : 115
+  -> interface reelle : les deux partenaires sont bien en contact.
+
+==========================================================================
+7. SEQUENCES (a verifier par BLAST, ne jamais supposer l'identite)
+==========================================================================
+>chaine_A | 601 residus
+     1 EPCVEVVPNITYQCMELNFYKIPDNLPFSTKNLDLSFNPLRHLGSYSFFSFPELQVLDLS
+    61 RCEIQTIEDGAYQSLSHLSTLILTGNPIQSLALGAFSGLSSLQKLVAVETNLASLENFPI
+   121 GHLKTLKELNVAHNLIQSFKLPEYFSNLTNLEHLDLSSNKIQSIYCTDLRVLHQMPLLNL
+   181 SLDLSLNPMNFIQPGAFKEIRLHKLTLRNNFDSLNVMKTCIQGLAGLEVHRLVLGEFRNE
+   241 GNLEKFDKSALEGLCNLTIEEFRLAYLDYYLDGIIDLFNCLTNVSSFSLVSVTIERVKDF
+   301 SYNFGWQHLELVNCKFGQFPTLKLKSLKRLTFTSNKGGNAFSEVDLPSLEFLDLSRNGLS
+   361 FKGCCSQSDFGTISLKYLDLSFNGVITMSSNFLGLEQLEHLDFQHSNLKQMSEFSVFLSL
+   421 RNLIYLDISHTHTRVAFNGIFNGLSSLEVLKMAGNSFQENFLPDIFTELRNLTFLDLSQC
+   481 QLEQLSPTAFNSLSSLQVLNMSHNNFFSLDTFPYKCLNSLQVLDYSLNHIMTSKKQELQH
+   541 FPSSLAFLNLTQNDFACTCEHQSFLQWIKDQRQLLVEVERMECATPSDKQGMPVLSLNIT
+   601 C
+
+>chaine_B | 477 residus
+     1 GIINTLQKYYCRVRGGRCAVLSCLPKEEQIGKCSTRGRKCCRRKKEAAAKAQSLIDTKVK
+    61 EISNQEPGPGPGDPTGLEPDDHLKEKSSGPGPGVSMPTAQSTMKAEEITPGRFRGPGPGL
+   121 PSSSSYSYRRKLTNPANKEGPGPGMESGWSDTAHGVGEIPMKTDGPGPGQVEWRKKSDTT
+   181 DTTNAASTTGPGPGRGIREKKIKYEGGLQFVEHGPGPGLETIEWARKFQEKEKQGPGPGK
+   241 RQLADLVAAQKLATGPGPGDATFNIKTAFHCYGAGPGPGKEESIPFHFQMEKQVIHAGPG
+   301 PGTTSMAQKSFTQVEWRKKSDTGPGPGETPVQMLALDIAYKYGPGPGMLSILRKTAAWHI
+   361 GHGPGPGMSLYSVKENIGLQDDGPGPGFAIPIILKAAAYRTLGVFRYKAAYLPTRVRLEI
+   421 AAYDRGFFITTLAAYNLIEFIEVTAAYRYEGEWVTFAAYVTLIEAIRFAAYHHHHHH
+
+==========================================================================
+FIN DE L'INVENTAIRE
+==========================================================================
