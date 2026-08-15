@@ -1,1 +1,12 @@
-vaccine_tlr4_analysis/structures/*.pdb
+# Les copies de travail ne sont pas versionnées : ce sont des doublons du
+# fichier d'entrée, et elles changent à chaque construction vaccinale
+# analysée (V1, V2, V3...). Le pipeline est conçu pour que l'utilisateur
+# dépose SA structure sous le nom fixe complex.pdb ; voir README.md.
+# La provenance et l'empreinte MD5 de chaque entrée sont tracées dans
+# notes/provenance.md.
+*.pdb
+*.cif
+*.gro
+
+# ...mais on garde le dossier dans le dépôt.
+!.gitignore
