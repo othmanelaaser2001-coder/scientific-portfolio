@@ -60,8 +60,26 @@ Sortie complète : `results/logs/01_inventory.txt`
 - [ ] Si MD : quelle trajectoire, quelle frame, et **comment** cette frame a été choisie
       (structure représentative du cluster le plus peuplé / frame moyenne / dernière frame)
 - [ ] Champ de force et durée de simulation, le cas échéant
-- [ ] Vérification BLAST de la chaîne A contre UniProt O00206
-- [ ] Vérification de la chaîne B contre `Vaccin-1Hanta.fasta`
+- [ ] Vérification BLAST de la chaîne A contre la PDB / UniProt O00206
+- [x] Vérification de la chaîne B contre `Vaccin-1Hanta.fasta` — voir ci-dessous
+
+## Vérification d'identité — chaîne B (vaccin)
+
+| Élément | Valeur |
+|---|---|
+| Référence | `Desktop\vaccin contre andes\Vaccin-1Hanta.fasta` |
+| En-tête du FASTA | `>1Vhanta\|andes\|4600aa` |
+| Longueur de la référence | 477 aa |
+| Longueur de la chaîne B du PDB | 477 aa |
+| Différences | 0 |
+| **Identité** | **477/477 = 100,00 %** |
+
+**Conclusion : la chaîne B est la construction vaccinale V1, sans perte ni modification
+de résidu au cours du docking.**
+
+> Anomalie d'annotation à corriger avant soumission : l'en-tête du FASTA annonce
+> `4600aa` alors que la séquence compte 477 acides aminés. La séquence est correcte,
+> seul le libellé est faux.
 
 ## Journal
 
