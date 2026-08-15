@@ -60,7 +60,43 @@ Sortie complète : `results/logs/01_inventory.txt`
 - [ ] Si MD : quelle trajectoire, quelle frame, et **comment** cette frame a été choisie
       (structure représentative du cluster le plus peuplé / frame moyenne / dernière frame)
 - [ ] Champ de force et durée de simulation, le cas échéant
-- [ ] Vérification BLAST de la chaîne A contre la PDB / UniProt O00206
+- [x] Vérification BLAST de la chaîne A — voir ci-dessous
+- [ ] Confirmer si la structure source est 4G8A ou 3FXI (déplier le cluster BLAST)
+- [ ] Vérifier si Gly299 / Ile399 se trouvent à l'interface avec le vaccin (étape 3)
+
+## Vérification d'identité — chaîne A (récepteur)
+
+BLASTP, base ClusteredNR, RID `81GWUEYB014`, longueur de requête 601.
+
+| Champ | Valeur |
+|---|---|
+| Meilleur résultat | `Chain A, Toll-like receptor 4 [Homo sapiens]` |
+| Accession | `3FXI_A` (représentant d'un cluster de 2 membres, 1 organisme) |
+| Query Cover | 100 % |
+| E value | 0.0 |
+| Per. Ident | **99,67 %** |
+| Max Score | 1209 |
+
+**Conclusion : la chaîne A est l'ectodomaine de TLR4 humain.** Numérotation 27–627,
+conforme à la numérotation UniProt (peptide signal 1–23 retiré), 601 résidus sans trou.
+
+### ⚠️ Le récepteur porte le variant polymorphe D299G / T399I
+
+99,67 % d'identité sur 601 résidus correspond à **2 différences**. Vérification directe
+dans le fichier :
+
+| Position | Résidu de référence (canonique) | Résidu dans cette structure |
+|---|---|---|
+| 299 | Asp (D) | **Gly (G)** |
+| 399 | Thr (T) | **Ile (I)** |
+
+Ce sont exactement les deux polymorphismes humains documentés de TLR4
+(**D299G** = rs4986790, **T399I** = rs4986791), tous deux situés dans l'ectodomaine.
+
+**Conséquence pour l'article :** la section Méthodes doit préciser que le récepteur
+modélisé est le variant D299G/T399I et non la forme canonique. Ces variants sont
+associés à une réponse modifiée au LPS ; si l'un des deux se révèle à l'interface
+avec le vaccin, cela devient un point de discussion majeur — à vérifier à l'étape 3.
 - [x] Vérification de la chaîne B contre `Vaccin-1Hanta.fasta` — voir ci-dessous
 
 ## Vérification d'identité — chaîne B (vaccin)
