@@ -37,13 +37,9 @@ to watch it happen in the GUI instead.
 | # | Script | Purpose |
 |---|--------|---------|
 | 1 | `01_inventory.pml` | Structural inventory: chains, residue numbering, gaps, non-standard residues, chain breaks |
-| 2 | _(next)_ | Assign molecular identity to each chain (which is TLR4, which is the vaccine) |
-| 3 | _(next)_ | Interface residue detection by heavy-atom distance cutoff |
-| 4 | _(next)_ | Hydrogen-bond detection (geometry) |
-| 5 | _(next)_ | Salt-bridge detection (charged-group geometry) |
-| 6 | _(next)_ | Hydrophobic contact detection |
-| 7 | _(next)_ | Export interaction tables |
-| 8 | _(next)_ | Publication figure + session + high-resolution images |
+| 2 | — | Identity of each chain, verified against reference sequences (see `notes/provenance.md`) |
+| 3–7 | `02_interface_analysis.py` | Interface residues, hydrogen bonds, salt bridges, hydrophobic contacts, buried surface area, CSV tables |
+| 8 | `03_figure.pml` | Publication figures + PyMOL session (generated automatically by step 3–7) |
 
 ## Important caveat carried through the whole workflow
 
@@ -53,3 +49,20 @@ about "stable" or "key" hydrogen bonds require occupancy over the MD
 trajectory (e.g. `gmx hbond`, MDAnalysis, or PLIP over multiple frames),
 not a single frame. See `notes/` for how each reported interaction was
 validated.
+
+
+## Rejouer le pipeline sur une autre construction (V2, V3, ...)
+
+Trois commandes, aucun script à modifier :
+
+```powershell
+Copy-Item "chemin\vers\V2hantaTLR4G8A.pdb" -Destination "structures\complex.pdb" -Force
+python scripts\01_inventory.py structures\complex.pdb > results\logs\01_inventory.txt
+python scripts\02_interface_analysis.py structures\complex.pdb A B
+```
+
+puis dans PyMOL : `@scripts/03_figure.pml`
+
+`03_figure.pml` est **régénéré** à chaque exécution de l'étape 2 à partir des
+résidus réellement détectés — il n'y a donc jamais de résidu codé en dur qui
+traînerait d'une analyse précédente.

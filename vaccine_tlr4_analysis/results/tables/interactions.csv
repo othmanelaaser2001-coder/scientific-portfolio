@@ -1,0 +1,136 @@
+type_interaction,chaine_1,residu_1,numero_1,atome_1,chaine_2,residu_2,numero_2,atome_2,distance_A,distance_H_A,angle_deg,remarque
+Liaison hydrogene,A,ASP,50,N,B,ARG,38,NH1,3.26,2.58,126,donneur TLR4
+Liaison hydrogene,A,ARG,264,NH1,B,GLU,291,OE1,2.73,1.82,149,donneur TLR4
+Liaison hydrogene,A,ARG,264,NH2,B,GLU,291,OE1,3.12,2.40,128,donneur TLR4
+Liaison hydrogene,A,ARG,264,NH2,B,GLU,291,OE2,2.94,1.93,175,donneur TLR4
+Liaison hydrogene,A,ASN,339,ND2,B,GLN,289,OE1,2.91,1.96,158,donneur TLR4
+Liaison hydrogene,A,LYS,362,NZ,B,GLU,291,OE1,2.60,1.89,122,donneur TLR4
+Liaison hydrogene,A,LYS,362,NZ,B,GLU,291,OE2,2.68,1.83,136,donneur TLR4
+Liaison hydrogene,A,LYS,362,NZ,B,GLN,289,OE1,2.54,1.67,138,donneur TLR4
+Liaison hydrogene,A,ASN,433,ND2,B,ASP,245,OD2,2.95,1.96,167,donneur TLR4
+Liaison hydrogene,A,HIS,456,ND1,B,GLU,205,OE2,2.87,2.10,134,donneur TLR4
+Liaison hydrogene,A,ARG,606,NE,B,ASP,178,OD1,3.05,2.32,129,donneur TLR4
+Liaison hydrogene,A,ARG,606,NH2,B,ASP,178,OD2,2.71,1.83,142,donneur TLR4
+Liaison hydrogene,A,ARG,606,NH2,B,THR,180,OG1,2.58,1.75,138,donneur TLR4
+Liaison hydrogene,A,ARG,606,NH2,B,ASP,178,OD1,2.79,1.92,141,donneur TLR4
+Liaison hydrogene,A,ASN,44,OD1,B,ASN,4,ND2,2.90,1.97,154,donneur vaccin
+Liaison hydrogene,A,GLU,27,O,B,ARG,14,NH1,2.65,1.68,161,donneur vaccin
+Liaison hydrogene,A,GLU,27,OE2,B,ARG,17,NH1,2.76,1.93,137,donneur vaccin
+Liaison hydrogene,A,GLU,27,OE1,B,ARG,17,NH1,2.81,2.02,133,donneur vaccin
+Liaison hydrogene,A,GLU,27,OE2,B,ARG,17,NH2,2.84,2.01,137,donneur vaccin
+Liaison hydrogene,A,GLU,27,OE1,B,ARG,17,NH2,2.72,1.92,133,donneur vaccin
+Liaison hydrogene,A,ILE,48,O,B,ARG,38,NH1,3.18,2.40,134,donneur vaccin
+Liaison hydrogene,A,ASP,50,OD2,B,ARG,38,NH1,2.83,1.92,148,donneur vaccin
+Liaison hydrogene,A,ILE,48,O,B,ARG,38,NH2,3.31,2.54,133,donneur vaccin
+Liaison hydrogene,A,GLU,603,OE2,B,ARG,129,NH1,2.78,1.94,139,donneur vaccin
+Liaison hydrogene,A,GLU,605,OE2,B,ARG,129,NH1,2.64,1.87,130,donneur vaccin
+Liaison hydrogene,A,GLU,603,OE2,B,ARG,129,NH2,2.73,1.85,144,donneur vaccin
+Liaison hydrogene,A,GLN,578,OE1,B,THR,180,OG1,2.67,1.85,142,donneur vaccin
+Liaison hydrogene,A,ASP,550,OD1,B,LYS,203,NZ,2.93,2.13,132,donneur vaccin
+Liaison hydrogene,A,SER,552,OG,B,LYS,203,NZ,2.67,1.76,143,donneur vaccin
+Liaison hydrogene,A,SER,528,OG,B,LYS,203,NZ,2.46,1.68,128,donneur vaccin
+Liaison hydrogene,A,GLN,505,O,B,ARG,226,NE,3.25,2.28,162,donneur vaccin
+Liaison hydrogene,A,GLN,505,OE1,B,ARG,226,NH2,2.65,1.83,136,donneur vaccin
+Liaison hydrogene,A,HIS,431,O,B,LYS,266,NZ,2.75,1.85,142,donneur vaccin
+Liaison hydrogene,A,ASN,339,OD1,B,GLN,289,NE2,2.97,2.13,140,donneur vaccin
+Liaison hydrogene,A,GLU,42,OE1,B,ARG,467,NE,2.91,2.04,143,donneur vaccin
+Liaison hydrogene,A,GLU,42,OE2,B,ARG,467,NH2,2.68,1.83,139,donneur vaccin
+Liaison hydrogene,A,GLU,42,OE1,B,ARG,467,NH2,2.76,1.84,150,donneur vaccin
+Liaison hydrogene,A,MET,41,O,B,HIS,475,ND1,2.92,2.01,153,donneur vaccin
+Pont salin,A,GLU,27,OE1,B,ARG,17,NH1,2.81,,,TLR4 anionique
+Pont salin,A,GLU,27,OE1,B,ARG,17,NH2,2.72,,,TLR4 anionique
+Pont salin,A,GLU,27,OE2,B,ARG,17,NH1,2.76,,,TLR4 anionique
+Pont salin,A,GLU,27,OE2,B,ARG,17,NH2,2.84,,,TLR4 anionique
+Pont salin,A,GLU,42,OE1,B,ARG,467,NH2,2.76,,,TLR4 anionique
+Pont salin,A,GLU,42,OE1,B,ARG,467,NE,2.91,,,TLR4 anionique
+Pont salin,A,GLU,42,OE2,B,ARG,467,NH2,2.68,,,TLR4 anionique
+Pont salin,A,ASP,50,OD1,B,ARG,38,NH1,2.67,,,TLR4 anionique
+Pont salin,A,ASP,50,OD2,B,ARG,38,NH1,2.83,,,TLR4 anionique
+Pont salin,A,ASP,550,OD1,B,LYS,203,NZ,2.93,,,TLR4 anionique
+Pont salin,A,GLU,603,OE2,B,ARG,129,NH2,2.73,,,TLR4 anionique
+Pont salin,A,GLU,603,OE2,B,ARG,129,NH1,2.78,,,TLR4 anionique
+Pont salin,A,GLU,605,OE2,B,ARG,129,NH1,2.64,,,TLR4 anionique
+Pont salin,A,ARG,606,NH2,B,ASP,178,OD1,2.79,,,TLR4 cationique
+Pont salin,A,ARG,606,NE,B,ASP,178,OD1,3.05,,,TLR4 cationique
+Pont salin,A,ARG,606,NH2,B,ASP,178,OD2,2.71,,,TLR4 cationique
+Pont salin,A,HIS,456,ND1,B,GLU,205,OE2,2.87,,,TLR4 cationique
+Pont salin,A,HIS,458,NE2,B,ASP,245,OD1,3.43,,,TLR4 cationique
+Pont salin,A,LYS,435,NZ,B,ASP,245,OD2,3.99,,,TLR4 cationique
+Pont salin,A,ARG,264,NH2,B,GLU,291,OE1,3.12,,,TLR4 cationique
+Pont salin,A,ARG,264,NH1,B,GLU,291,OE1,2.73,,,TLR4 cationique
+Pont salin,A,LYS,362,NZ,B,GLU,291,OE1,2.60,,,TLR4 cationique
+Pont salin,A,ARG,264,NH2,B,GLU,291,OE2,2.94,,,TLR4 cationique
+Pont salin,A,ARG,264,NH1,B,GLU,291,OE2,3.78,,,TLR4 cationique
+Pont salin,A,LYS,362,NZ,B,GLU,291,OE2,2.68,,,TLR4 cationique
+Contact hydrophobe,A,PHE,408,CD2,B,PHE,286,CE2,3.60,,,
+Contact vdW,A,SER,528,OG,B,LYS,203,NZ,2.46,,,
+Contact vdW,A,LYS,362,NZ,B,GLN,289,OE1,2.54,,,
+Contact vdW,A,ARG,606,NH2,B,THR,180,OG1,2.58,,,
+Contact vdW,A,LYS,362,NZ,B,GLU,291,OE1,2.60,,,
+Contact vdW,A,GLU,605,OE2,B,ARG,129,NH1,2.64,,,
+Contact vdW,A,GLN,505,OE1,B,ARG,226,NH2,2.65,,,
+Contact vdW,A,GLU,27,O,B,ARG,14,NH1,2.65,,,
+Contact vdW,A,ASP,50,OD1,B,ARG,38,NH1,2.67,,,
+Contact vdW,A,SER,552,OG,B,LYS,203,NZ,2.67,,,
+Contact vdW,A,GLN,578,OE1,B,THR,180,OG1,2.67,,,
+Contact vdW,A,GLU,42,OE2,B,ARG,467,NH2,2.68,,,
+Contact vdW,A,ARG,606,NH2,B,ASP,178,OD2,2.71,,,
+Contact vdW,A,GLU,27,OE1,B,ARG,17,NH2,2.72,,,
+Contact vdW,A,ARG,264,NH1,B,GLU,291,OE1,2.73,,,
+Contact vdW,A,GLU,603,OE2,B,ARG,129,NH2,2.73,,,
+Contact vdW,A,HIS,431,O,B,LYS,266,NZ,2.75,,,
+Contact vdW,A,PRO,28,O,B,HIS,477,N,2.77,,,
+Contact vdW,A,GLU,42,O,B,TYR,471,CZ,2.78,,,
+Contact vdW,A,HIS,456,ND1,B,GLU,205,OE2,2.87,,,
+Contact vdW,A,ASN,433,ND2,B,ASP,245,OD1,2.89,,,
+Contact vdW,A,ASN,44,OD1,B,ASN,4,ND2,2.90,,,
+Contact vdW,A,ASN,339,ND2,B,GLN,289,OE1,2.91,,,
+Contact vdW,A,MET,41,O,B,HIS,475,ND1,2.92,,,
+Contact vdW,A,LYS,47,O,B,ARG,38,NH2,2.93,,,
+Contact vdW,A,ASP,550,OD1,B,LYS,203,NZ,2.93,,,
+Contact vdW,A,PRO,28,O,B,HIS,475,O,2.96,,,
+Contact vdW,A,ARG,606,CZ,B,THR,179,OG1,2.98,,,
+Contact vdW,A,ASN,383,O,B,PHE,288,CE2,2.99,,,
+Contact vdW,A,ARG,382,O,B,HIS,287,O,3.03,,,
+Contact vdW,A,LEU,43,C,B,TYR,471,OH,3.07,,,
+Contact vdW,A,HIS,458,NE2,B,LEU,246,CB,3.10,,,
+Contact vdW,A,PRO,28,O,B,HIS,476,C,3.17,,,
+Contact vdW,A,ILE,48,O,B,ARG,38,NH1,3.18,,,
+Contact vdW,A,VAL,30,CG2,B,HIS,474,O,3.18,,,
+Contact vdW,A,LEU,43,CD2,B,HIS,476,ND1,3.19,,,
+Contact vdW,A,ARG,606,CD,B,ARG,129,NH1,3.23,,,
+Contact vdW,A,ASN,409,O,B,HIS,287,CD2,3.23,,,
+Contact vdW,A,ASN,44,N,B,TYR,471,OH,3.23,,,
+Contact vdW,A,CYS,29,O,B,HIS,477,C,3.26,,,
+Contact vdW,A,VAL,30,CG2,B,HIS,475,O,3.26,,,
+Contact vdW,A,PRO,49,N,B,ARG,38,NH2,3.30,,,
+Contact vdW,A,HIS,529,CE1,B,ILE,202,CB,3.33,,,
+Contact vdW,A,PRO,28,CD,B,GLY,37,O,3.37,,,
+Contact vdW,A,PHE,45,CD2,B,ARG,38,NH2,3.37,,,
+Contact vdW,A,HIS,456,CE1,B,ARG,226,NH2,3.41,,,
+Contact vdW,A,ASN,51,OD1,B,ARG,38,CD,3.43,,,
+Contact vdW,A,HIS,458,NE2,B,VAL,247,N,3.43,,,
+Contact vdW,A,HIS,458,CD2,B,ASP,245,CG,3.43,,,
+Contact vdW,A,GLU,42,CB,B,HIS,475,ND1,3.43,,,
+Contact vdW,A,GLY,384,CA,B,HIS,287,CB,3.46,,,
+Contact vdW,A,GLN,507,CD,B,ARG,226,CB,3.50,,,
+Contact vdW,A,HIS,529,ND1,B,LYS,203,CB,3.51,,,
+Contact vdW,A,LEU,43,CD2,B,HIS,475,C,3.51,,,
+Contact vdW,A,ASN,361,O,B,PHE,288,CD2,3.57,,,
+Contact vdW,A,GLY,480,CA,B,ARG,226,NE,3.58,,,
+Contact vdW,A,GLN,578,OE1,B,ASP,178,OD2,3.58,,,
+Contact vdW,A,LEU,43,O,B,GLN,7,NE2,3.59,,,
+Contact vdW,A,PHE,408,CD2,B,PHE,286,CE2,3.60,,,
+Contact vdW,A,ASN,44,CB,B,GLN,7,OE1,3.63,,,
+Contact vdW,A,VAL,30,CA,B,HIS,477,C,3.66,,,
+Contact vdW,A,LYS,362,CB,B,PHE,288,CD2,3.67,,,
+Contact vdW,A,LEU,553,CD1,B,THR,180,CG2,3.68,,,
+Contact vdW,A,GLU,27,N,B,ARG,38,CA,3.69,,,
+Contact vdW,A,GLN,507,NE2,B,ALA,225,O,3.70,,,
+Contact vdW,A,ASN,433,ND2,B,VAL,247,CG2,3.72,,,
+Contact vdW,A,ASN,365,ND2,B,PHE,288,CZ,3.77,,,
+Contact vdW,A,ASN,409,O,B,LYS,266,NZ,3.78,,,
+Contact vdW,A,LEU,553,CD1,B,LYS,203,CD,3.84,,,
+Contact vdW,A,HIS,431,O,B,VAL,247,CG1,3.87,,,
+Contact vdW,A,HIS,456,CB,B,LEU,246,CD1,3.98,,,
+Contact vdW,A,LYS,435,NZ,B,ASP,245,OD2,3.99,,,

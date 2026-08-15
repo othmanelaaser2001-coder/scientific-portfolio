@@ -1,0 +1,72 @@
+partenaire,chaine,residu,numero,code1,distance_min_A,types_interaction,residus_partenaires
+TLR4,A,GLU,27,E,2.65,liaison H|pont salin,Arg14|Arg17|Arg38
+TLR4,A,PRO,28,P,2.77,vdW,Gly37|His475|His476|His477
+TLR4,A,CYS,29,C,3.26,vdW,His477
+TLR4,A,VAL,30,V,3.18,vdW,His474|His475|His477
+TLR4,A,MET,41,M,2.92,liaison H,His475
+TLR4,A,GLU,42,E,2.68,liaison H|pont salin,Arg467|His475|Tyr471
+TLR4,A,LEU,43,L,3.07,vdW,Gln7|His475|His476|Tyr471
+TLR4,A,ASN,44,N,2.90,liaison H,Asn4|Gln7|Tyr471
+TLR4,A,PHE,45,F,3.37,vdW,Arg38
+TLR4,A,LYS,47,K,2.93,vdW,Arg38
+TLR4,A,ILE,48,I,3.18,liaison H,Arg38
+TLR4,A,PRO,49,P,3.30,vdW,Arg38
+TLR4,A,ASP,50,D,2.67,liaison H|pont salin,Arg38
+TLR4,A,ASN,51,N,3.43,vdW,Arg38
+TLR4,A,ARG,264,R,2.73,liaison H|pont salin,Glu291
+TLR4,A,ASN,339,N,2.91,liaison H,Gln289
+TLR4,A,ASN,361,N,3.57,vdW,Phe288
+TLR4,A,LYS,362,K,2.54,liaison H|pont salin,Gln289|Glu291|Phe288
+TLR4,A,ASN,365,N,3.77,vdW,Phe288
+TLR4,A,ARG,382,R,3.03,vdW,His287
+TLR4,A,ASN,383,N,2.99,vdW,Phe288
+TLR4,A,GLY,384,G,3.46,vdW,His287
+TLR4,A,PHE,408,F,3.60,hydrophobe,Phe286
+TLR4,A,ASN,409,N,3.23,vdW,His287|Lys266
+TLR4,A,HIS,431,H,2.75,liaison H,Lys266|Val247
+TLR4,A,ASN,433,N,2.89,liaison H,Asp245|Val247
+TLR4,A,LYS,435,K,3.99,pont salin,Asp245
+TLR4,A,HIS,456,H,2.87,liaison H|pont salin,Arg226|Glu205|Leu246
+TLR4,A,HIS,458,H,3.10,pont salin,Asp245|Leu246|Val247
+TLR4,A,GLY,480,G,3.58,vdW,Arg226
+TLR4,A,GLN,505,Q,2.65,liaison H,Arg226
+TLR4,A,GLN,507,Q,3.50,vdW,Ala225|Arg226
+TLR4,A,SER,528,S,2.46,liaison H,Lys203
+TLR4,A,HIS,529,H,3.33,vdW,Ile202|Lys203
+TLR4,A,ASP,550,D,2.93,liaison H|pont salin,Lys203
+TLR4,A,SER,552,S,2.67,liaison H,Lys203
+TLR4,A,LEU,553,L,3.68,vdW,Lys203|Thr180
+TLR4,A,GLN,578,Q,2.67,liaison H,Asp178|Thr180
+TLR4,A,GLU,603,E,2.73,liaison H|pont salin,Arg129
+TLR4,A,GLU,605,E,2.64,liaison H|pont salin,Arg129
+TLR4,A,ARG,606,R,2.58,liaison H|pont salin,Arg129|Asp178|Thr179|Thr180
+Vaccin,B,ASN,4,N,2.90,liaison H,Asn44
+Vaccin,B,GLN,7,Q,3.59,vdW,Asn44|Leu43
+Vaccin,B,ARG,14,R,2.65,liaison H,Glu27
+Vaccin,B,ARG,17,R,2.72,liaison H|pont salin,Glu27
+Vaccin,B,GLY,37,G,3.37,vdW,Pro28
+Vaccin,B,ARG,38,R,2.67,liaison H|pont salin,Asn51|Asp50|Glu27|Ile48|Lys47|Phe45|Pro49
+Vaccin,B,ARG,129,R,2.64,liaison H|pont salin,Arg606|Glu603|Glu605
+Vaccin,B,ASP,178,D,2.71,liaison H|pont salin,Arg606|Gln578
+Vaccin,B,THR,179,T,2.98,vdW,Arg606
+Vaccin,B,THR,180,T,2.58,liaison H,Arg606|Gln578|Leu553
+Vaccin,B,ILE,202,I,3.33,vdW,His529
+Vaccin,B,LYS,203,K,2.46,liaison H|pont salin,Asp550|His529|Leu553|Ser528|Ser552
+Vaccin,B,GLU,205,E,2.87,liaison H|pont salin,His456
+Vaccin,B,ALA,225,A,3.70,vdW,Gln507
+Vaccin,B,ARG,226,R,2.65,liaison H,Gln505|Gln507|Gly480|His456
+Vaccin,B,ASP,245,D,2.89,liaison H|pont salin,Asn433|His458|Lys435
+Vaccin,B,LEU,246,L,3.10,vdW,His456|His458
+Vaccin,B,VAL,247,V,3.43,vdW,Asn433|His431|His458
+Vaccin,B,LYS,266,K,2.75,liaison H,Asn409|His431
+Vaccin,B,PHE,286,F,3.60,hydrophobe,Phe408
+Vaccin,B,HIS,287,H,3.03,vdW,Arg382|Asn409|Gly384
+Vaccin,B,PHE,288,F,2.99,vdW,Asn361|Asn365|Asn383|Lys362
+Vaccin,B,GLN,289,Q,2.54,liaison H,Asn339|Lys362
+Vaccin,B,GLU,291,E,2.60,liaison H|pont salin,Arg264|Lys362
+Vaccin,B,ARG,467,R,2.68,liaison H|pont salin,Glu42
+Vaccin,B,TYR,471,Y,2.78,vdW,Asn44|Glu42|Leu43
+Vaccin,B,HIS,474,H,3.18,vdW,Val30
+Vaccin,B,HIS,475,H,2.92,liaison H,Glu42|Leu43|Met41|Pro28|Val30
+Vaccin,B,HIS,476,H,3.17,vdW,Leu43|Pro28
+Vaccin,B,HIS,477,H,2.77,vdW,Cys29|Pro28|Val30

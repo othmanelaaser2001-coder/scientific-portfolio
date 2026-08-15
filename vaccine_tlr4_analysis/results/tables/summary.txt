@@ -1,0 +1,112 @@
+==============================================================================
+SYNTHESE DE L'INTERFACE  TLR4 (chaine A)  <->  Vaccin (chaine B)
+==============================================================================
+Structure : structures/complex.pdb
+
+SURFACE ENFOUIE
+  SASA TLR4 isole        :  24145.3 A^2
+  SASA Vaccin isole      :  16117.8 A^2
+  SASA du complexe      :  37243.8 A^2
+  Surface enfouie totale:   3019.3 A^2
+  Surface enfouie / cote:   1509.7 A^2
+
+DENOMBREMENT
+  Residus d'interface TLR4     (<= 4.0 A) : 41
+  Residus d'interface Vaccin   (<= 4.0 A) : 30
+  Couples de residus en contact          : 71
+  Liaisons hydrogene                     : 38
+  Ponts salins                           : 25
+  Contacts hydrophobes (couples)         : 1
+
+RESIDUS D'INTERFACE - TLR4 (chaine A)
+  Glu27 Pro28 Cys29 Val30 Met41 Glu42 Leu43 Asn44 Phe45 Lys47 Ile48 Pro49 Asp50 Asn51 Arg264 Asn339 Asn361 Lys362 Asn365 Arg382 Asn383 Gly384 Phe408 Asn409 His431 Asn433 Lys435 His456 His458 Gly480 Gln505 Gln507 Ser528 His529 Asp550 Ser552 Leu553 Gln578 Glu603 Glu605 Arg606
+
+RESIDUS D'INTERFACE - Vaccin (chaine B)
+  Asn4 Gln7 Arg14 Arg17 Gly37 Arg38 Arg129 Asp178 Thr179 Thr180 Ile202 Lys203 Glu205 Ala225 Arg226 Asp245 Leu246 Val247 Lys266 Phe286 His287 Phe288 Gln289 Glu291 Arg467 Tyr471 His474 His475 His476 His477
+
+LIAISONS HYDROGENE (D...A <= 3.5 A, H...A <= 2.6 A, angle >= 120 deg)
+  B Lys203 NZ    ...  A Ser528 OG     D...A 2.46 A   H...A 1.68 A   128 deg
+  A Lys362 NZ    ...  B Gln289 OE1    D...A 2.54 A   H...A 1.67 A   138 deg
+  A Arg606 NH2   ...  B Thr180 OG1    D...A 2.58 A   H...A 1.75 A   138 deg
+  A Lys362 NZ    ...  B Glu291 OE1    D...A 2.60 A   H...A 1.89 A   122 deg
+  B Arg129 NH1   ...  A Glu605 OE2    D...A 2.64 A   H...A 1.87 A   130 deg
+  B Arg226 NH2   ...  A Gln505 OE1    D...A 2.65 A   H...A 1.83 A   136 deg
+  B Arg14 NH1   ...  A Glu27 O      D...A 2.65 A   H...A 1.68 A   161 deg
+  B Lys203 NZ    ...  A Ser552 OG     D...A 2.67 A   H...A 1.76 A   143 deg
+  B Thr180 OG1   ...  A Gln578 OE1    D...A 2.67 A   H...A 1.85 A   142 deg
+  B Arg467 NH2   ...  A Glu42 OE2    D...A 2.68 A   H...A 1.83 A   139 deg
+  A Lys362 NZ    ...  B Glu291 OE2    D...A 2.68 A   H...A 1.83 A   136 deg
+  A Arg606 NH2   ...  B Asp178 OD2    D...A 2.71 A   H...A 1.83 A   142 deg
+  B Arg17 NH2   ...  A Glu27 OE1    D...A 2.72 A   H...A 1.92 A   133 deg
+  A Arg264 NH1   ...  B Glu291 OE1    D...A 2.73 A   H...A 1.82 A   149 deg
+  B Arg129 NH2   ...  A Glu603 OE2    D...A 2.73 A   H...A 1.85 A   144 deg
+  B Lys266 NZ    ...  A His431 O      D...A 2.75 A   H...A 1.85 A   142 deg
+  B Arg17 NH1   ...  A Glu27 OE2    D...A 2.76 A   H...A 1.93 A   137 deg
+  B Arg467 NH2   ...  A Glu42 OE1    D...A 2.76 A   H...A 1.84 A   150 deg
+  B Arg129 NH1   ...  A Glu603 OE2    D...A 2.78 A   H...A 1.94 A   139 deg
+  A Arg606 NH2   ...  B Asp178 OD1    D...A 2.79 A   H...A 1.92 A   141 deg
+  B Arg17 NH1   ...  A Glu27 OE1    D...A 2.81 A   H...A 2.02 A   133 deg
+  B Arg38 NH1   ...  A Asp50 OD2    D...A 2.83 A   H...A 1.92 A   148 deg
+  B Arg17 NH2   ...  A Glu27 OE2    D...A 2.84 A   H...A 2.01 A   137 deg
+  A His456 ND1   ...  B Glu205 OE2    D...A 2.87 A   H...A 2.10 A   134 deg
+  B Asn4 ND2   ...  A Asn44 OD1    D...A 2.90 A   H...A 1.97 A   154 deg
+  A Asn339 ND2   ...  B Gln289 OE1    D...A 2.91 A   H...A 1.96 A   158 deg
+  B Arg467 NE    ...  A Glu42 OE1    D...A 2.91 A   H...A 2.04 A   143 deg
+  B His475 ND1   ...  A Met41 O      D...A 2.92 A   H...A 2.01 A   153 deg
+  B Lys203 NZ    ...  A Asp550 OD1    D...A 2.93 A   H...A 2.13 A   132 deg
+  A Arg264 NH2   ...  B Glu291 OE2    D...A 2.94 A   H...A 1.93 A   175 deg
+  A Asn433 ND2   ...  B Asp245 OD2    D...A 2.95 A   H...A 1.96 A   167 deg
+  B Gln289 NE2   ...  A Asn339 OD1    D...A 2.97 A   H...A 2.13 A   140 deg
+  A Arg606 NE    ...  B Asp178 OD1    D...A 3.05 A   H...A 2.32 A   129 deg
+  A Arg264 NH2   ...  B Glu291 OE1    D...A 3.12 A   H...A 2.40 A   128 deg
+  B Arg38 NH1   ...  A Ile48 O      D...A 3.18 A   H...A 2.40 A   134 deg
+  B Arg226 NE    ...  A Gln505 O      D...A 3.25 A   H...A 2.28 A   162 deg
+  A Asp50 N     ...  B Arg38 NH1    D...A 3.26 A   H...A 2.58 A   126 deg
+  B Arg38 NH2   ...  A Ile48 O      D...A 3.31 A   H...A 2.54 A   133 deg
+
+PONTS SALINS (<= 4.0 A)
+  B Glu291 OE1   ...  A Lys362 NZ     2.60 A
+  A Glu605 OE2   ...  B Arg129 NH1    2.64 A
+  A Asp50 OD1   ...  B Arg38 NH1    2.67 A
+  A Glu42 OE2   ...  B Arg467 NH2    2.68 A
+  B Glu291 OE2   ...  A Lys362 NZ     2.68 A
+  B Asp178 OD2   ...  A Arg606 NH2    2.71 A
+  A Glu27 OE1   ...  B Arg17 NH2    2.72 A
+  B Glu291 OE1   ...  A Arg264 NH1    2.73 A
+  A Glu603 OE2   ...  B Arg129 NH2    2.73 A
+  A Glu27 OE2   ...  B Arg17 NH1    2.76 A
+  A Glu42 OE1   ...  B Arg467 NH2    2.76 A
+  A Glu603 OE2   ...  B Arg129 NH1    2.78 A
+  B Asp178 OD1   ...  A Arg606 NH2    2.79 A
+  A Glu27 OE1   ...  B Arg17 NH1    2.81 A
+  A Asp50 OD2   ...  B Arg38 NH1    2.83 A
+  A Glu27 OE2   ...  B Arg17 NH2    2.84 A
+  B Glu205 OE2   ...  A His456 ND1    2.87 A
+  A Glu42 OE1   ...  B Arg467 NE     2.91 A
+  A Asp550 OD1   ...  B Lys203 NZ     2.93 A
+  B Glu291 OE2   ...  A Arg264 NH2    2.94 A
+  B Asp178 OD1   ...  A Arg606 NE     3.05 A
+  B Glu291 OE1   ...  A Arg264 NH2    3.12 A
+  B Asp245 OD1   ...  A His458 NE2    3.43 A
+  B Glu291 OE2   ...  A Arg264 NH1    3.78 A
+  B Asp245 OD2   ...  A Lys435 NZ     3.99 A
+
+CONTACTS HYDROPHOBES (C...C <= 4.0 A, chaines laterales apolaires)
+  A Phe408    ...  B Phe286     3.60 A
+
+==============================================================================
+AVERTISSEMENT METHODOLOGIQUE
+==============================================================================
+Ces resultats decrivent UNE conformation issue d'un docking corps-rigide.
+Ils identifient des interactions GEOMETRIQUEMENT POSSIBLES dans cette pose.
+Ils ne demontrent AUCUNE stabilite, ni aucune pertinence biologique.
+
+Formulation acceptable  : 'in the docked complex, residues X and Y form
+                          a predicted hydrogen bond (2.9 A)'
+Formulation NON valide  : 'residue X forms a key/stable hydrogen bond'
+
+Pour affirmer la stabilite il faut l'occupation sur une trajectoire de
+dynamique moleculaire (gmx hbond, MDAnalysis) : une liaison presente dans
+>= 50-70 %% des frames est rapportable comme stable. PyMOL ne peut pas
+fournir cette information, quelle que soit la commande utilisee.
+==============================================================================
