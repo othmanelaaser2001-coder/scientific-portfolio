@@ -1,5 +1,6 @@
 import { setTorch, startCamera, stopCamera, type CameraHandle } from './camera';
-import { GUIDANCE_TEXT, type Guidance, type KeyframeRecord, type LiveState, type ScanCapture } from './types';
+import { GUIDANCE_TEXT, type KeyframeRecord, type LiveState, type ScanCapture } from './types';
+import { BLUR_RATIO, GuidanceSmoother, LOST_STREAK_LIMIT, decideGuidance } from './guidance';
 import { clearScanFrames, clearStaleFrames, estimateStorage, putFrame } from '../storage/frameStore';
 import { VisionClient } from '../workers/visionClient';
 import { matApply, matIdentity, matInvert, matMul } from '../vision/mat';
@@ -37,6 +38,7 @@ const INITIAL_STATE: LiveState = {
   guidance: 'position',
   frames: 0,
   rejected: 0,
+  drops: 0,
   overlap: 1,
   sharpness: 0,
   sharpnessRatio: 1,
@@ -111,6 +113,9 @@ export class ScanSession {
   private sharpnessPeak = 0;
   private lastAdvance = 0;
   private lastAdvanceAt = 0;
+  private lostStreak = 0;
+  private drops = 0;
+  private guidanceSmoother = new GuidanceSmoother();
   private frameBudget = DEFAULT_SETTINGS.maxFrames;
   private storageFull = false;
   private liveTransform: Mat23 | null = null;
@@ -204,6 +209,9 @@ export class ScanSession {
       this.keyframes = [];
       this.cumulative = [];
       this.rejected = 0;
+      this.drops = 0;
+      this.lostStreak = 0;
+      this.guidanceSmoother.reset('position', performance.now());
       this.sharpnessPeak = 0;
       this.lastAdvance = 0;
       this.liveTransform = null;
@@ -262,6 +270,7 @@ export class ScanSession {
   beginScanning(): void {
     if (this.state.phase !== 'ready') return;
     this.running = true;
+    this.guidanceSmoother.reset('start-moving', performance.now());
     this.patch({ phase: 'scanning', guidance: 'start-moving' });
     this.scheduleProbe();
   }
@@ -325,23 +334,38 @@ export class ScanSession {
     const sharpnessRatio = this.sharpnessPeak > 0 ? sharpness / this.sharpnessPeak : 1;
 
     if (!report.alignment) {
-      this.liveTransform = null;
-      this.rejected++;
+      this.lostStreak++;
+      this.drops++;
+      // Keep the last known position for the ghost overlay through a short
+      // dropout; only drop it once tracking is genuinely gone, so the overlay
+      // does not strobe on every soft frame.
+      if (this.lostStreak >= LOST_STREAK_LIMIT) this.liveTransform = null;
       this.patch({
-        guidance: 'lost',
+        guidance: this.guidanceSmoother.update(
+          decideGuidance({
+            tracking: false,
+            overlap: 0,
+            sharpnessRatio,
+            speed: this.state.speed,
+            budgetReached: this.keyframes.length >= this.frameBudget || this.storageFull,
+            lostStreak: this.lostStreak,
+            minOverlap: this.settings.minOverlap,
+          }),
+          now,
+        ),
         confidence: 0,
         matches: 0,
         inliers: 0,
         keypoints: report.stats.keypoints,
         sharpness,
         sharpnessRatio,
-        overlap: 0,
-        rejected: this.rejected,
+        drops: this.drops,
         workerMs: report.ms,
         probeHz,
       });
       return;
     }
+    this.lostStreak = 0;
 
     this.liveTransform = report.alignment.transform;
     const advance = Math.hypot(report.alignment.transform.tx, report.alignment.transform.ty) / workWidth;
@@ -351,16 +375,21 @@ export class ScanSession {
     this.lastAdvanceAt = now;
 
     const overlap = report.overlap;
-    const blurry = sharpnessRatio < 0.42;
-    const tooFast = speed > 0.85;
+    const blurry = sharpnessRatio < BLUR_RATIO;
     const budgetReached = this.keyframes.length >= this.frameBudget || this.storageFull;
 
-    let guidance: Guidance = 'good';
-    if (budgetReached) guidance = 'budget';
-    else if (overlap < this.settings.minOverlap * 0.72) guidance = 'move-back';
-    else if (overlap < this.settings.minOverlap) guidance = 'low-overlap';
-    else if (tooFast) guidance = 'slow-down';
-    else if (blurry) guidance = 'hold-steady';
+    const guidance = this.guidanceSmoother.update(
+      decideGuidance({
+        tracking: true,
+        overlap,
+        sharpnessRatio,
+        speed,
+        budgetReached,
+        lostStreak: 0,
+        minOverlap: this.settings.minOverlap,
+      }),
+      now,
+    );
 
     this.patch({
       guidance,
@@ -415,11 +444,18 @@ export class ScanSession {
       const isFirst = this.keyframes.length === 0;
       if (!isFirst && !report.alignment) {
         // The committed frame could not be tied to the previous one; drop it
-        // and let the user back up rather than guessing a transform.
+        // and let the user recover rather than guessing a transform.
         this.rejected++;
+        this.lostStreak++;
         await this.vision.reset('live');
         await this.recommitReference();
-        this.patch({ rejected: this.rejected, guidance: 'move-back' });
+        this.patch({
+          rejected: this.rejected,
+          guidance: this.guidanceSmoother.update(
+            this.lostStreak >= LOST_STREAK_LIMIT ? 'lost' : 'hold-steady',
+            performance.now(),
+          ),
+        });
         return;
       }
 

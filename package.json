@@ -9,7 +9,7 @@
     "preview": "vite preview --host",
     "lint": "oxlint",
     "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "tsx test/vision.test.ts",
+    "test:unit": "tsx test/vision.test.ts && tsx test/guidance.test.ts",
     "test:fixtures": "python3 test/make_fixture.py test/fixtures/strap.y4m && python3 test/make_fixture.py test/fixtures/strap-vertical.y4m --vertical && python3 test/make_fixture.py test/fixtures/strap-fast.y4m --fast",
     "test:e2e": "node test/e2e.mjs && node test/e2e.mjs --vertical && node test/e2e.mjs --fast"
   },

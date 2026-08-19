@@ -63,7 +63,10 @@ export interface LiveState {
   phase: 'idle' | 'starting' | 'ready' | 'scanning' | 'finishing' | 'error';
   guidance: Guidance;
   frames: number;
+  /** Candidate frames discarded because they were too soft or too uncertain. */
   rejected: number;
+  /** Probes where tracking could not be established at all. */
+  drops: number;
   overlap: number;
   sharpness: number;
   sharpnessRatio: number;

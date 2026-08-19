@@ -163,6 +163,7 @@ export default function ScannerScreen({ debug, onCancel, onFinished }: Props) {
           rows={[
             ['captured', String(state.frames)],
             ['rejected', String(state.rejected)],
+            ['tracking drops', String(state.drops)],
             ['overlap', state.overlap.toFixed(3)],
             ['sharpness', `${state.sharpness.toFixed(1)} (${(state.sharpnessRatio * 100).toFixed(0)}%)`],
             ['matches', String(state.matches)],
